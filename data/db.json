@@ -1,0 +1,70 @@
+{
+  "decks": [
+    {
+      "id": 1,
+      "name": "Rendering in React",
+      "description": "React's component structure allows for quickly building a complex web application that relies on DOM manipulation. "
+    },
+    {
+      "name": "Example Deck",
+      "description": "Just an example of a deck\n",
+      "id": 2
+    },
+    {
+      "name": "Not Enough Cards",
+      "description": "Example of not enough cards",
+      "id": 3
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "front": "Differentiate between Real DOM and Virtual DOM.",
+      "back": "Virtual DOM updates are faster but do not directly update the HTML",
+      "deckId": 1
+    },
+    {
+      "id": 2,
+      "front": "How do you modify the state of a different React component?",
+      "back": "Not at all! State is visible to the component only.",
+      "deckId": 1
+    },
+    {
+      "id": 3,
+      "front": "How do you pass data 'down' to a React child component?",
+      "back": "As properties or props",
+      "deckId": 1
+    },
+    {
+      "cards": [],
+      "front": "b",
+      "back": "b",
+      "deckId": 1,
+      "id": 7
+    },
+    {
+      "id": 8,
+      "front": "Example question",
+      "back": "Example Answer",
+      "deckId": 2
+    },
+    {
+      "id": 9,
+      "front": "Front",
+      "back": "Back",
+      "deckId": 2
+    },
+    {
+      "id": 10,
+      "front": "The front",
+      "back": "The back",
+      "deckId": 2
+    },
+    {
+      "id": 11,
+      "front": "asdf",
+      "back": "asdf",
+      "deckId": 3
+    }
+  ]
+}
