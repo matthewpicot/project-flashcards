@@ -4,11 +4,11 @@ import { readDeck, updateDeck } from '../utils/api';
 
 // edit deck
 function EditDeck() {
+  const { deckId } = useParams();
   const mountedRef = useRef(false);
   const initialState = { name: '', description: '' };
   const [editDeckFormData, setEditDeckFormData] = useState(initialState);
 
-  const { deckId } = useParams();
   const history = useHistory();
 
   // mounted ref changes
@@ -25,9 +25,9 @@ function EditDeck() {
     async function loadDeck() {
       try {
         const loadedDeck = await readDeck(deckId, abortController.signal);
-        if (mountedRef.current) {
+        if (mountedRef.current) { 
           setEditDeckFormData(() => loadedDeck);
-        }
+        } 
       } catch (error) {
         if (error.name !== 'AbortError') {
           throw error;
@@ -51,8 +51,9 @@ function EditDeck() {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    const response = await updateDeck(editDeckFormData);
-    history.push(`/decks/${response.id}`);
+    await updateDeck(editDeckFormData);
+    setEditDeckFormData(initialState);
+    history.push(`/decks/${deckId}`);
   };
 
   return (
@@ -74,7 +75,7 @@ function EditDeck() {
           </li>
         </ol>
       </nav>
-      <form>
+      <form  onSubmit={submitHandler}>
         <h1 className='my-4 text-center'>Edit Deck</h1>
         <div className='form-group'>
           <label htmlFor='name'>Name</label>
@@ -114,7 +115,6 @@ function EditDeck() {
         <button
           type='submit'
           className='btn btn-primary'
-          onSubmit={submitHandler}
         >
           Submit
         </button>
